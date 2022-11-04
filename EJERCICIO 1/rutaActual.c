@@ -3,5 +3,5 @@
 int main()
 {
 	char wd[1000];
-	printf("Directorio de trabajo actual: %s",getcwd(wd,sizeof(wd)));
+	printf("Directorio de trabajo actual: %s", getcwd(wd, sizeof(wd)));
 }

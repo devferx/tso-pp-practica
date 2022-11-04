@@ -12,17 +12,18 @@ int main(int argc, char *argv[])
     DIR *dir;
     struct dirent *mydirent;
     int i = 1;
-    
-    if(argc != 2) {
-	puts("USAGE: listdir {pathname}");
-	exit(EXIT_FAILURE);
+
+    if (argc != 2)
+    {
+        puts("USAGE: listdir {pathname}");
+        exit(EXIT_FAILURE);
     }
-    
-    if((dir = opendir(argv[1])) == NULL)
-	err_quit("opendir");
-    while((mydirent = readdir(dir)) != NULL) 
-	printf("%3d : %s\n", i++, mydirent->d_name);
-    
+
+    if ((dir = opendir(argv[1])) == NULL)
+        err_quit("opendir");
+    while ((mydirent = readdir(dir)) != NULL)
+        printf("%3d : %s\n", i++, mydirent->d_name);
+
     closedir(dir);
     exit(EXIT_SUCCESS);
 }

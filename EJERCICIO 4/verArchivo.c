@@ -1,4 +1,4 @@
-// Ejercio 4 TSO 
+// Ejercio 4 TSO
 
 #include <stdio.h>
 #include <stdlib.h>
