@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
       char *nombreArchivo = strtok(NULL, " ");
       nombreArchivo[strlen(nombreArchivo) - 1] = '\0';
       mostrarArchivo(nombreArchivo);
+      printf("\n");
     }
     else
     {
