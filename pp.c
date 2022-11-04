@@ -12,13 +12,9 @@ void cambiarDirectorio(char *path[]);
 
 int main(int argc, char *argv[])
 {
-  // if (argc > 1)
-  // {
-  // }
-  // else
-  // {
-  //   printf("Necesito argumento\n");
-  // }
+
+  if (argc < 4)
+    err_quit("Faltan argumentos: pp <comando> <path> <nombreArchivo>");
 
   // Ejercicio 1
   printf(">>>>>> Ejercicio 1 <<<<<<\n");
@@ -38,12 +34,6 @@ int main(int argc, char *argv[])
   mostrarArchivo(argv[3]);
 }
 
-void err_quit(char *msg)
-{
-  perror(msg);
-  exit(EXIT_FAILURE);
-}
-
 const char *mostrarDirectorio()
 {
   char wd[1000];
@@ -52,7 +42,6 @@ const char *mostrarDirectorio()
   return res;
 }
 
-// void listarDirectorio(int argc, char *argv[])
 void listarDirectorio(char *path[])
 {
   DIR *dir;
@@ -75,44 +64,38 @@ void mostrarArchivo(char *nombreArchivo)
   FILE *ptr;
   char ch;
 
-  // Opening file in reading mode
   ptr = fopen(nombreArchivo, "r");
 
   if (NULL == ptr)
-  {
-    printf("file can't be opened \n");
-  }
+    printf("El archivo no se puede mostrar \n");
 
-  printf("content of this file are \n");
-
-  // Printing what is written in file
-  // character by character using loop.
+  printf("El contenido del archivo es: \n");
   do
   {
     ch = fgetc(ptr);
     printf("%c", ch);
-
-    // Checking if character is not EOF.
-    // If it is EOF stop eading.
   } while (ch != EOF);
 
-  // Closing the file
   fclose(ptr);
 }
 
 void cambiarDirectorio(char *path[])
 {
-  printf("Cambiando a directorio: %s", path);
-  printf("\n");
+  char *currentDir = mostrarDirectorio();
+  printf("Directorio actual: %s \n", currentDir);
+  printf("Cambiando a directorio: %s \n", path);
 
   if (chdir(path) < 0)
-  {
-    perror("chdir");
-    exit(EXIT_FAILURE);
-  }
+    err_quit("chdir");
+
   mostrarDirectorio();
-  // system("ls");
-  char *currentDir = mostrarDirectorio();
-  printf("Directorio de trabajo actual: %s", currentDir);
-  printf("\n");
+
+  currentDir = mostrarDirectorio();
+  printf("Directorio de trabajo actual: %s \n", currentDir);
+}
+
+void err_quit(char *msg)
+{
+  perror(msg);
+  exit(EXIT_FAILURE);
 }
