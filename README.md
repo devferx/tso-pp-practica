@@ -48,4 +48,5 @@ comando a ejecutar:ls
 comando a ejecutar:pwd
 comando a ejecutar:cd nueva-carpeta
 comando a ejecutar:cat ejem.txt
+comando a ejecutar:exit
 ```
