@@ -6,6 +6,7 @@ El proyecto tiene 2 alternativas:
 - En el modo prueba se manda por parametros los argumentos mostrados en la descripción de ejecutar
 - En el modo interactivo mediante comandos conocidos se van ejecutando, hasta que exista una falla o se termine la ejecución con el comando exit
 ### Compilar
+- **⚠️ En la compilación suelen salir warnings**
 
 **Modo Prueba**
 ```bash
